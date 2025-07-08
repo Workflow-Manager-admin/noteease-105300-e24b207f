@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="note-editor">
+  <label>
+    <span>Title</span>
+    <input type="text" formControlName="title" maxlength="100" autocomplete="off" required />
+  </label>
+  <label>
+    <span>Content</span>
+    <textarea formControlName="content" rows="7" maxlength="1000"></textarea>
+  </label>
+  <div class="editor-actions">
+    <button type="submit" [disabled]="form.invalid" class="primary">
+      {{note ? 'Update' : 'Create'}}
+    </button>
+    <button type="button" (click)="onCancel()" class="secondary" *ngIf="note">
+      Cancel
+    </button>
+  </div>
+</form>

@@ -1,0 +1,51 @@
+.notes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+.notes-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0.5rem 0.75rem 0.75rem;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.notes-list li.selected {
+  background: #f3f6fb;
+  color: #1976d2;
+  font-weight: bold;
+}
+
+.notes-list .note-title {
+  flex: 1 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notes-list .delete {
+  background: none;
+  border: none;
+  color: #b71c1c;
+  font-size: 1.3rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+.notes-list .delete:hover {
+  color: #f44336;
+}
+
+.empty-list {
+  color: #aaa;
+  padding: 0.75rem;
+  text-align: center;
+  font-style: italic;
+}

@@ -1,0 +1,48 @@
+<app-header [title]="'NoteEase'"></app-header>
+<div class="container">
+  <app-sidebar [title]="'NoteEase'"></app-sidebar>
+  <main class="main-area">
+    <section class="notes-section">
+      <div class="notes-header">
+        <input
+          type="text"
+          placeholder="Search notes..."
+          [(ngModel)]="searchTerm"
+          (ngModelChange)="onSearch($event)"
+          class="search-input"
+        />
+        <button class="primary newnote" (click)="onCreateNote()">+ New Note</button>
+      </div>
+      <app-notes-list
+        [notes]="notes"
+        [selectedNoteId]="selectedNote?.id ?? null"
+        (selectNote)="onSelectNote($event)"
+        (deleteNote)="onDeleteNote($event)"
+      ></app-notes-list>
+    </section>
+    <section class="note-details">
+      <ng-container *ngIf="showEditor">
+        <app-note-editor
+          [note]="isEditing ? selectedNote : null"
+          (save)="onSaveNote($event)"
+          (cancel)="onCancelEdit()"
+        ></app-note-editor>
+      </ng-container>
+      <ng-container *ngIf="selectedNote && !showEditor">
+        <div class="note-display">
+          <h2>{{selectedNote.title}}</h2>
+          <p class="note-content">{{selectedNote.content}}</p>
+          <div class="note-meta">
+            <em>Created: {{selectedNote.created_at | date:'short'}}</em>
+          </div>
+          <div class="note-actions">
+            <button class="primary" (click)="onEditNote()">Edit</button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!selectedNote && !showEditor">
+        <p class="empty-note"><em>Select a note or create a new one...</em></p>
+      </ng-container>
+    </section>
+  </main>
+</div>

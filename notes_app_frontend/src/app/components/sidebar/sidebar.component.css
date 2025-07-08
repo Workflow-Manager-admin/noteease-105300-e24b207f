@@ -1,0 +1,15 @@
+.sidebar {
+  width: 220px;
+  min-width: 180px;
+  background: #f6f7fb;
+  color: #1976d2;
+  font-weight: bold;
+  font-size: 1.7rem;
+  padding: 1.3rem 1.2rem 1.5rem 1.2rem;
+  box-shadow: 1.5px 0 0 #eee;
+  border-right: 1.5px solid #f0f0f0;
+}
+.app-title {
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
+}
